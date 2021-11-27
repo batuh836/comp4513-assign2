@@ -1,7 +1,8 @@
+const helper = require('../scripts/helpers.js');
+
 // handle GET requests for [domain]/api/books - return all books
 const handleAllPlays = (app, Play) => {
-    app.route('/api/list')
-        .get((req,resp) => {
+    app.get('/api/list', helper.ensureAuthenticated, (req,resp) => {
             // use mongoose to retrieve all books from Mongo
             Play.find()
                 .select('-playText')
@@ -18,8 +19,7 @@ const handleAllPlays = (app, Play) => {
 
 // handle requests for specific book: e.g., /api/books/0321886518
 const handleSinglePlay = (app, Play) => {
-    app.route('/api/play/:id')
-        .get( (req,resp) => {
+    app.get('/api/play/:id', helper.ensureAuthenticated, (req,resp) => {
             Play.find({id: req.params.id}, (err, data) => {
                 if (err) {
                     resp.json({ message: 'Play not found' });
