@@ -33,7 +33,7 @@ class PlayDetailApp extends React.Component {
                     const url = "https://comp4513-assign2.herokuapp.com/api/play/" + this.props.play.id;
                     const response = await fetch(url);
                     const data = await response.json();
-                    const playText = data[0].playText;
+                    const playText = data.playText;
                     this.setState({playData: playText});
                     //console.log(playText);
                     

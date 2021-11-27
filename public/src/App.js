@@ -24,18 +24,18 @@ class App extends React.Component {
     }
                             
     async componentDidMount() {
-        if (!this.state.user) {
-            try {
-                const url = "https://comp4513-assign2.herokuapp.com/user";
-                const response = await fetch(url);
-                const data = await response.json();
-                this.setState({user: data});
-                console.log(data);
-            } 
-            catch {
-                console.error("fetch error");
-            }
-        }
+//        if (!this.state.user) {
+//            try {
+//                const url = "https://comp4513-assign2.herokuapp.com/user";
+//                const response = await fetch(url);
+//                const data = await response.json();
+//                this.setState({user: data});
+//                console.log(data);
+//            } 
+//            catch {
+//                console.error("fetch error");
+//            }
+//        }
         
         //only get data if plays is empty
         if (!this.state.plays.length) {
@@ -43,6 +43,8 @@ class App extends React.Component {
                 const url = "https://comp4513-assign2.herokuapp.com/api/list";
                 const response = await fetch(url);
                 const data = await response.json();
+                console.log(data);
+                
                 this.setState({plays: data});
                 this.setState({filteredPlays: data});
                 
