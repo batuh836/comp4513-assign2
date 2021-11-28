@@ -60,6 +60,10 @@ app.get('/', helper.ensureAuthenticated, (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
+app.get('/user', helper.ensureAuthenticated, (req, res) => {
+    res.json(req.user);
+});
+
 app.get('/login', (req, res) => {
     res.render('login.ejs', {message: req.flash('error')} );
 });
