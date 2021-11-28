@@ -19,7 +19,7 @@ app.use(cookieParser('oreos'));
 app.use(
     session({
         secret: process.env.SECRET,
-        resave: false,
+        resave: true,
         saveUninitialized: true
     })
 );
