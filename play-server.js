@@ -54,7 +54,7 @@ playRouter.handleSinglePlay(app, Play);
 userRouter.handleSingleUser(app, User);
 
 // serves up static files from the build folder
-app.use('/', express.static(path.join(__dirname, 'public', 'build')));
+app.use('/', express.static(path.join(__dirname, 'public')));
 
 app.get('/', helper.ensureAuthenticated, (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
