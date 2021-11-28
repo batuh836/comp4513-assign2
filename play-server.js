@@ -14,7 +14,9 @@ const helper = require('./scripts/helpers.js');
 // use cors middleware
 app.use(cors());
 
-// Express session
+console.log(process.env.SECRET);
+
+// Express session 
 app.use(cookieParser('oreos'));
 app.use(
     session({
@@ -59,10 +61,6 @@ app.use('/', express.static(path.join(__dirname, 'public')));
 app.get('/', helper.ensureAuthenticated, (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
-
-//app.get('/user', helper.ensureAuthenticated, (req, res) => {
-//    res.json(req.user);
-//});
 
 app.get('/login', (req, res) => {
     res.render('login.ejs', {message: req.flash('error')} );
