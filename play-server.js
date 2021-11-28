@@ -11,7 +11,7 @@ const flash = require('express-flash');
 const passport = require('passport');
 const helper = require('./scripts/helpers.js');
 
-// serves up static files from the public folder.
+// use cors middleware
 app.use(cors());
 
 // Express session
@@ -87,7 +87,7 @@ app.use(function (req, res, next) {
     res.status(404).send("Sorry can't find that!")
 });
 
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
     console.log("Server running at port= " + port);
 });
