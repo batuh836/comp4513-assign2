@@ -14,8 +14,6 @@ const helper = require('./scripts/helpers.js');
 // use cors middleware
 app.use(cors());
 
-console.log(process.env.SECRET);
-
 // Express session 
 app.use(cookieParser('oreos'));
 app.use(
