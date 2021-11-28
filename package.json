@@ -1,5 +1,5 @@
 {
-  "name": "comp4513-assign2-node",
+  "name": "comp4513-assign2",
   "version": "1.0.0",
   "description": "��#\u0000 \u0000C\u0000o\u0000n\u0000t\u0000e\u0000n\u0000t\u0000 \u0000f\u0000o\u0000r\u0000 \u0000N\u0000o\u0000d\u0000e\u0000 \u0000+\u0000 \u0000M\u0000o\u0000n\u0000g\u0000o\u0000D\u0000B\u0000 \u0000L\u0000a\u0000b\u0000 \u0000C\u0000O\u0000M\u0000P\u00004\u00005\u00001\u00003\u0000 \u0000F\u0000a\u0000l\u0000l\u0000 \u00002\u00000\u00002\u00001\u0000\r\u0000 \u0000",
   "main": "play-server.js",
@@ -23,12 +23,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/batuh836/comp4513-assign2-node.git"
+    "url": "git+https://github.com/batuh836/comp4513-assign2.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/batuh836/comp4513-assign2-node/issues"
+    "url": "https://github.com/batuh836/comp4513-assign2/issues"
   },
-  "homepage": "https://github.com/batuh836/comp4513-assign2-node#readme"
+  "homepage": "https://github.com/batuh836/comp4513-assign2#readme"
 }
