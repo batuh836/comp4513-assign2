@@ -14,10 +14,10 @@ const User = (props) => {
         return (
             <Modal isOpen={props.modalIsOpen} contentLabel="Example Modal" className="user">
                 <h1>Profile</h1>
-                <span>Name: {details.firstname} {details.lastname}</span>
-                <span>Location: {details.city}, {details.country}</span>
-                <span>Joined: {membership.date_joined}</span>
-                <img src={picture.thumbnail} alt="picture"/>
+                <span>Name: {details.firstname} {details.lastname}</span><br/>
+                <span>Location: {details.city}, {details.country}</span><br/>
+                <span>Joined: {membership.date_joined}</span><br/>
+                <img src={picture.thumbnail} alt="picture"/><br/>
                 <button onClick={handleOnClick}>Close</button>
             </Modal>
         );
