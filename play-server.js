@@ -65,7 +65,7 @@ app.get('/user', helper.ensureAuthenticated, (req, res) => {
 });
 
 app.get('/login', (req, res) => {
-    res.render('login.ejs', {message: req.flash('error')} );
+    res.render('login', {message: req.flash('error')} );
 });
 
 app.post('/login', async (req, resp, next) => {
@@ -80,7 +80,7 @@ app.post('/login', async (req, resp, next) => {
 app.get('/logout', (req, resp) => {
     req.logout();
     req.flash('info', 'You were logged out');
-    resp.render('login.ejs', {message: req.flash('info')} );
+    resp.render('login', {message: req.flash('info')} );
 });
 
 app.use(function (req, res, next) {
