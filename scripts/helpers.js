@@ -9,7 +9,6 @@ function ensureAuthenticated (req, res, next) {
         console.log("is NOT authenticated");
         req.flash('info', 'Please log in to view that resource');
         res.render('login', {message: req.flash('info')} );
-//        res.redirect('/login');
     }
 }
 module.exports = { ensureAuthenticated };

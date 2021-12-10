@@ -68,6 +68,10 @@ app.get('/', (req, res) => {
     res.render('login', {message: req.flash('error')} );
 });
 
+app.get('/login', (req, res) => {
+    res.render('login', {message: req.flash('error')} );
+});
+
 app.post('/login', async (req, resp, next) => {
     // use passport authentication to see if valid login
     passport.authenticate('localLogin', { 
