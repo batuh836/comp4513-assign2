@@ -54,9 +54,9 @@ playRouter.handleSinglePlay(app, Play);
 userRouter.handleSingleUser(app, User);
 
 // serves up static files from the build folder
-app.use('/', express.static(path.join(__dirname, 'public', 'build')));
+app.use('/home', express.static(path.join(__dirname, 'public', 'build')));
 
-app.get('/', helper.ensureAuthenticated, (req, res) => {
+app.get('/home', helper.ensureAuthenticated, (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'build', 'index.html'));
 });
 
@@ -64,14 +64,14 @@ app.get('/user', helper.ensureAuthenticated, (req, res) => {
     res.json(req.user);
 });
 
-app.get('/login', (req, res) => {
+app.get('/', (req, res) => {
     res.render('login', {message: req.flash('error')} );
 });
 
 app.post('/login', async (req, resp, next) => {
     // use passport authentication to see if valid login
     passport.authenticate('localLogin', { 
-        successRedirect: '/',
+        successRedirect: '/home',
         failureRedirect: '/login',
         failureFlash: true 
     })(req, resp, next);
