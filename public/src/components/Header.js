@@ -13,7 +13,7 @@ const Header = (props) => {
     
     return (
         <div className="header">
-            <Link to="/"><span>Play Browser</span></Link>
+            <Link to="/home"><span>Play Browser</span></Link>
             <a href="https://comp4513-assign2.herokuapp.com/logout"><button>Logout</button></a>
             <button onClick={handleAboutClick}>About</button>
             <button onClick={handleUserClick}>Profile</button>

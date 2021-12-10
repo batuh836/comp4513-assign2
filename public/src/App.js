@@ -160,7 +160,7 @@ class App extends React.Component {
         
         return (
             <div className="app">
-                <Route path="/" exact>
+                <Route path="/home" exact>
                     <CSSTransitionGroup transitionName="landing" 
                                         transitionAppear={true} 
                                         transitionAppearTimeout={500}
