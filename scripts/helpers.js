@@ -8,8 +8,8 @@ function ensureAuthenticated (req, res, next) {
     else {
         console.log("is NOT authenticated");
         req.flash('info', 'Please log in to view that resource');
-        res.render('login', {message: req.flash('info')} );
-        return null;
+        res.redirect('/login');
+        //res.render('login', {message: req.flash('info')} );
     }
 }
 module.exports = { ensureAuthenticated };
