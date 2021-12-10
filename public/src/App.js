@@ -26,17 +26,18 @@ class App extends React.Component {
     }
                             
     async componentDidMount() {
-        try {
-            const url = "https://comp4513-assign2.herokuapp.com/user";
-            const response = await fetch(url);
-            const data = await response.json();
-            this.setState({user: data});
-        } 
-        catch {
-            console.error("fetch error");
+        if (!this.state.user) {
+            try {
+                const url = "https://comp4513-assign2.herokuapp.com/user";
+                const response = await fetch(url);
+                const data = await response.json();
+                this.setState({user: data});
+            } 
+            catch {
+                console.error("fetch error");
+            }
         }
 
-        //only get data if plays is empty
         if (!this.state.plays.length) {
             try {
                 const url = "https://comp4513-assign2.herokuapp.com/api/list";
