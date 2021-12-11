@@ -41,7 +41,7 @@ class App extends React.Component {
 
         if (!this.state.plays.length) {
             try {
-                const url = "https://comp4513-assign2.herokuapp.com/api/list";
+                const url = "https://www.randyconnolly.com//funwebdev/3rd/api/shakespeare/list.php";
                 const response = await fetch(url);
                 const data = await response.json();
                 
