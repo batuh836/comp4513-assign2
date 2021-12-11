@@ -6,8 +6,6 @@
 }
 
 .home article {
-    border: 1px solid black;
-    border-radius: 5px;
     background-color: white;
     position: absolute;
     height: 200px;

@@ -4,6 +4,8 @@ import { Form, Input, Button, Space, Select, Switch, Typography } from 'antd';
 const { Title } = Typography;
 
 const PlayFilters = (props) => {
+    const [form] = Form.useForm();
+
     const handleFilterClick = () => {
         //get value from each input element
         const title = document.getElementById("title").value;
@@ -25,12 +27,7 @@ const PlayFilters = (props) => {
     
     const handleClearClick = () => {
         //set input values to initial values
-        document.getElementById("title").value = "";
-        document.getElementById("before").checked = false;
-        document.getElementById("beforeYear").value = "";
-        document.getElementById("after").checked = false;
-        document.getElementById("afterYear").value = "";
-        document.getElementById("genre").value = "";
+        form.resetFields();
         
         //remove filters from plays
         props.setFilteredPlays({}, null, true);
@@ -40,7 +37,7 @@ const PlayFilters = (props) => {
     return (
         <div className="play-filters">
             <Title level={2}>Play Filters</Title>
-            <Form layout="vertical">
+            <Form layout="vertical" form={form}>
                 <Form.Item label="Title" name="title">
                     <Input id="title" type="text"/>
                 </Form.Item>
@@ -67,7 +64,7 @@ const PlayFilters = (props) => {
                 <Form.Item>
                     <Space>
                         <Button type="primary" htmlType="submit" onClick={handleFilterClick}>Filter</Button>
-                        <Button onClick={handleClearClick}>Clear</Button>
+                        <Button type="reset" onClick={handleClearClick}>Clear</Button>
                     </Space>
                 </Form.Item>
             </Form>
