@@ -9,6 +9,7 @@ import PlayList from "./components/PlayList.js";
 import PlayDetailApp from "./components/PlayDetailApp.js";
 import About from "./components/About.js";
 import User from "./components/User.js";
+import 'antd/dist/antd.css';
 
 class App extends React.Component {
     constructor(props) {

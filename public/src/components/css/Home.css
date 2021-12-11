@@ -6,42 +6,21 @@
 }
 
 .home article {
-    border: 1px solid black;
-    border-radius: 5px;
-    background-color: #bf9000;
+    background-color: white;
     position: absolute;
     height: 200px;
     width: 500px;
     margin-left: -250px;
     margin-top: -100px;
+    padding: 20px;
     left: 50%;
     top: 50%;
-}
-
-.home form {
-    padding: 40px;
-    line-height: 25px;
-}
-
-.home legend {
-    font-size: 1.5em;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.home input {
-    width: 100%;
-}
-
-.home button {
-    width: 150px;
-    margin: 0px 2.5px;
 }
 
 .home > p {
     position: absolute;
     right: 10px;
-    bottom: 0px;
+    bottom: -9px;
     color: white;
-    font-size: 0.5em;
+    font-size: 0.8em;
 }

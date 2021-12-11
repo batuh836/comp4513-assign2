@@ -1,7 +1,11 @@
 import React from "react";
-import "./css/PlayFilters.css";
+import { Form, Input, Button, Space, Select, Switch, Typography } from 'antd';
+
+const { Title } = Typography;
 
 const PlayFilters = (props) => {
+    const [form] = Form.useForm();
+
     const handleFilterClick = () => {
         //get value from each input element
         const title = document.getElementById("title").value;
@@ -23,12 +27,7 @@ const PlayFilters = (props) => {
     
     const handleClearClick = () => {
         //set input values to initial values
-        document.getElementById("title").value = "";
-        document.getElementById("before").checked = false;
-        document.getElementById("beforeYear").value = "";
-        document.getElementById("after").checked = false;
-        document.getElementById("afterYear").value = "";
-        document.getElementById("genre").value = "";
+        form.resetFields();
         
         //remove filters from plays
         props.setFilteredPlays({}, null, true);
@@ -37,30 +36,38 @@ const PlayFilters = (props) => {
     
     return (
         <div className="play-filters">
-            <form className="filter-form">
-                <h1 className="filter-header">Play Filters</h1>
-                <label className="main">Title</label><br/>
-                <input className="full" id="title" type="text"/><br/>
-                <label className="main">Year</label><br/>
-                <div className="before-filters">
-                    <input id="before" type="checkbox"/><label className="sub">Before:</label>
-                    <input className="partial" id="beforeYear" type="text"/>
-                </div>
-                <div className="after-filters">
-                    <input id="after" type="checkbox"/><label className="sub">After:</label>
-                    <input className="partial" id="afterYear" type="text"/>
-                </div>
-                <label className="main">Genre</label><br/>
-                <select id="genre">
-                    {props.genres.map((g, i) => 
-                        <option key={i} value={g}>{g}</option>                          
-                    )}
-                </select>
-            </form>
-            <div className="button-container">
-                <button className="filter-button" onClick={handleFilterClick}>Filter</button>
-                <button className="filter-button" onClick={handleClearClick}>Clear</button>
-            </div>
+            <Title level={2}>Play Filters</Title>
+            <Form layout="vertical" form={form}>
+                <Form.Item label="Title" name="title">
+                    <Input id="title" type="text"/>
+                </Form.Item>
+                <Title level={3}>Year</Title>
+                <Form.Item label="Before" name="before">
+                    <Space>
+                    <Switch id="before" type="checkbox"/>
+                    <Input id="beforeYear" type="text"/>
+                    </Space>
+                </Form.Item>
+                <Form.Item label="After" name="after">
+                    <Space>
+                        <Switch id="after" type="checkbox"/>
+                        <Input id="afterYear" type="text"/>
+                    </Space>
+                </Form.Item>
+                <Form.Item label="Genre" name="genre">
+                    <Select id="genre">
+                        {props.genres.map((g, i) => 
+                            <Select.option key={i} value={g}>{g}</Select.option>                          
+                        )}
+                    </Select>
+                </Form.Item>
+                <Form.Item>
+                    <Space>
+                        <Button type="primary" htmlType="submit" onClick={handleFilterClick}>Filter</Button>
+                        <Button type="reset" onClick={handleClearClick}>Clear</Button>
+                    </Space>
+                </Form.Item>
+            </Form>
         </div>
     );
 };
