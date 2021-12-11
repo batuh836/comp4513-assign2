@@ -3,7 +3,7 @@ import './App.css';
 import {CSSTransitionGroup} from 'react-transition-group';
 import {Route} from 'react-router-dom';
 import {cloneDeep, uniq} from 'lodash';
-import Header from "./components/Header.js";
+//import Header from "./components/HeaderContent.js";
 import Home from "./components/Home.js";
 import PlayList from "./components/PlayList.js";
 import PlayDetailApp from "./components/PlayDetailApp.js";
@@ -172,7 +172,6 @@ class App extends React.Component {
                     </CSSTransitionGroup>
                 </Route>
                 <Route path="/play-list" exact>
-                    <Header toggleAbout={toggleAbout} toggleUser={toggleUser}/>
                     <PlayList plays={this.state.filteredPlays}
                               genres={this.state.genres}
                               favourites={this.state.favourites}
@@ -180,10 +179,13 @@ class App extends React.Component {
                               setFilteredPlays={setFilteredPlays} 
                               addToFavourites={addToFavourites}
                               removeFromFavourites={removeFromFavourites}
-                              setCurrentPlay={setCurrentPlay}/>
+                              setCurrentPlay={setCurrentPlay}
+                              toggleAbout={toggleAbout}
+                              toggleUser={toggleUser}
+                              />
                 </Route>
                 <Route path="/play-detail" exact>
-                    <Header toggleAbout={toggleAbout} toggleUser={toggleUser}/>
+                    
                     <PlayDetailApp play={this.state.currentPlay}
                                    savedPlayData={this.state.savedPlayData}
                                    favourites={this.state.favourites}
@@ -199,3 +201,5 @@ class App extends React.Component {
 }
 
 export default App;
+
+//<Header toggleAbout={toggleAbout} toggleUser={toggleUser}/>

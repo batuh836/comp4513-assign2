@@ -9,11 +9,12 @@ const About = (props) => {
     
     return (
         <Modal isOpen={props.modalIsOpen} contentLabel="Example Modal" className="about">
-            <h1>About</h1>
+            <h2>About</h2>
             <p className="subtitle">Group Members</p>
             <p>Brian Atuh</p>
+            <p>Olga Koldachenko</p>
             <p className="subtitle">GitHub Link</p>
-            <p><a href="https://github.com/batuh836/comp4513_assignment1">Comp4513_Assignment1</a></p>
+            <p><a href="https://github.com/batuh836/comp4513-assign2">comp4513_assign2</a></p>
             <button onClick={handleOnClick}>Close</button>
         </Modal>
     );

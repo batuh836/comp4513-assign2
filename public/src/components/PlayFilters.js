@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Input, Button, Space, Select, Switch, Typography } from 'antd';
+import { Form, Input, Button, Space, Select, Switch, Typography, Col } from 'antd';
 
 const { Title } = Typography;
 
@@ -36,9 +36,9 @@ const PlayFilters = (props) => {
     
     
     return (
-        <div className="play-filters">
+        <Col span={6} style={{ padding: '0px 20px' }}>
             <Title level={2}>Play Filters</Title>
-            <Form layout="vertical" form={form}>
+            <Form  form={form}>
                 <Form.Item label="Title" name="title">
                     <Input id="title" type="text"/>
                 </Form.Item>
@@ -69,7 +69,7 @@ const PlayFilters = (props) => {
                     </Space>
                 </Form.Item>
             </Form>
-        </div>
+        </Col>
     );
 };
 
