@@ -1,7 +1,6 @@
 import React from "react";
 import FavouritesItem from "./FavouritesItem.js";
-import { Col, Typography, Layout } from 'antd';
-import "./css/FavouritesList.css";
+import { Typography, Layout } from 'antd';
 
 const { Header, Footer, Sider, Content } = Layout;
 

@@ -1,8 +1,12 @@
 import React from "react";
 import FavouritesList from "./FavouritesList.js";
 import PlayOverview from "./PlayOverview.js";
+import HeaderContent from "./HeaderContent.js";
 import PlayData from "./PlayData.js";
+import { Layout, Row } from 'antd';
 import "./css/PlayDetailApp.css";
+
+const { Header, Footer, Sider, Content } = Layout;
 
 class PlayDetailApp extends React.Component {
     constructor(props) {
@@ -33,9 +37,10 @@ class PlayDetailApp extends React.Component {
                     const url = "https://www.randyconnolly.com//funwebdev/3rd/api/shakespeare/play.php?name=" + this.props.play.id;
                     const response = await fetch(url);
                     const data = await response.json();
-                    const playText = data[0].playText;
+                    const playText = data
+                    //const playText = data[0].playText;
                     this.setState({playData: playText});
-                    //console.log(playText);
+                    console.log(playText);
                     
                     //set current act and scene with first in arrays
                     this.setState({currentAct: playText.acts[0]});
@@ -58,8 +63,9 @@ class PlayDetailApp extends React.Component {
     }
     
     render() {
-        const setCurrentTab = (tab) => {
-            this.setState({currentTab: tab});
+        const tabs = ["Details", "Characters", "Text"];
+        const setCurrentTab = (index) => {
+            this.setState({currentTab: tabs[index]});
         }
         
         const setPlayFilter = (name, value) => {
@@ -87,27 +93,38 @@ class PlayDetailApp extends React.Component {
         }
         
         return (
-            <div className="play-detail hide-favourites">
-                <FavouritesList favourites={this.props.favourites} 
-                                removeFromFavourites={this.props.removeFromFavourites}/>
-                <PlayOverview currentTab={this.state.currentTab} 
-                              play={this.props.play} 
-                              playData={this.state.playData} 
-                              currentAct={this.state.currentAct} 
-                              currentScene={this.state.currentScene} 
-                              addToFavourites={this.props.addToFavourites}
-                              setPlayFilter={setPlayFilter}
-                              setSearchText={setSearchText}/>
-                <PlayData currentTab={this.state.currentTab} 
-                          tabs={this.state.tabs} 
-                          play={this.props.play} 
-                          playData={this.state.playData} 
-                          currentAct={this.state.currentAct}
-                          currentScene={this.state.currentScene}
-                          currentCharacter={this.state.currentCharacter}
-                          searchText={this.state.searchText}
-                          setCurrentTab={setCurrentTab}/>
-            </div>
+            <Layout style={{height:"100vh"}}>
+                <Header>
+                    <HeaderContent toggleAbout={this.props.toggleAbout} toggleUser={this.props.toggleUser}/>
+                </Header>
+                <Layout>
+                    <FavouritesList favourites={this.props.favourites} 
+                                removeFromFavourites={this.props.removeFromFavourites}
+                                setCurrentPlay={this.props.setCurrentPlay}
+                                />
+                    <Content style={{padding: "20px 40px"}}>
+                        <Row justify="space-between">
+                            <PlayOverview currentTab={this.state.currentTab} 
+                                    play={this.props.play} 
+                                    playData={this.state.playData} 
+                                    currentAct={this.state.currentAct} 
+                                    currentScene={this.state.currentScene} 
+                                    addToFavourites={this.props.addToFavourites}
+                                    setPlayFilter={setPlayFilter}
+                                    setSearchText={setSearchText}/>
+                            <PlayData currentTab={this.state.currentTab} 
+                                    tabs={this.state.tabs} 
+                                    play={this.props.play} 
+                                    playData={this.state.playData} 
+                                    currentAct={this.state.currentAct}
+                                    currentScene={this.state.currentScene}
+                                    currentCharacter={this.state.currentCharacter}
+                                    searchText={this.state.searchText}
+                                    setCurrentTab={setCurrentTab}/>
+                        </Row>
+                    </Content>
+                </Layout>
+            </Layout>
         );
     }
 };

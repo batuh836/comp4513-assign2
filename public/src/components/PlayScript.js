@@ -1,46 +1,17 @@
 import React from "react";
 import Highlighter from "react-highlight-words";
-import "./css/PlayDataView.css";
 
-const PlayDataView = (props) => {
+const PlayScript = (props) => {
+
     const highlightText = (text) => {
         //replace found search text, with text wrapped in strong element
         const searchText = props.searchText;
         return (text.replace(searchText, "<strong>" + searchText + "</strong>"));
     }
-    
-    //display data according to current tab
-    if (props.currentTab === "Details") {
-        return (
-            <div className="data-view">
-                <p><strong>Likely date of composition:</strong> {props.play.likelyDate}</p>
-                <p><strong>Genre:</strong> {props.play.genre}</p>
-                <p><strong>Wiki Link:</strong> <a href={props.play.wiki}>{props.play.wiki}</a></p>
-                <p><strong>Gutenberg:</strong> <a href={props.play.gutenberg}>{props.play.gutenberg}</a></p>
-                <p><strong>Shakespeare.org Link:</strong> <a href={props.play.shakespeareOrg}>{props.play.shakespeareOrg}</a></p>
-                <p><strong>Description:</strong></p>
-                <p>{props.play.desc}</p>
-            </div>
-        );
-    }
-    else if (props.playData === null || props.currentAct === null) {
-        return (
-            <div className="data-view"></div>
-        );
-    }
-    else if (props.currentTab === "Characters") {
-        return (
-            <div className="data-view">
-                {props.playData.persona.map((p) =>
-                    <p key={p.player}><strong>{p.player}</strong> - {p.desc ? p.desc : "No description"}</p>
-                )}
-            </div>
-        );
-    }
-    else {
-        return (
-            <div className="data-view">
-                <h2>{props.playData.title}</h2>
+
+    return (
+        <div style={{textAlign:"left", backgroundColor: "white", padding:"10px", fontFamily: "serif"}}>
+            <h2>{props.playData.title}</h2>
                 <article id="actHere">
                     <h3>{props.currentAct.name}</h3>
                     <div id="sceneHere">
@@ -63,9 +34,8 @@ const PlayDataView = (props) => {
                         )}
                     </div>
                 </article>
-            </div>
-        );
-    }
-};
+        </div>
+    );
+}
 
-export default PlayDataView
+export default PlayScript

@@ -1,6 +1,6 @@
 import React from "react";
 import {Link} from 'react-router-dom';
-import {Button, Row, Col} from "antd";
+import {Button, Row} from "antd";
 import { CloseOutlined } from '@ant-design/icons';
 
 const FavouritesItem = (props) => {

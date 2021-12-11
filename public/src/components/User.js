@@ -1,6 +1,8 @@
 import React from "react";
 import Modal from 'react-modal';
-import "./css/User.css";
+import { Typography, Button, Row, Col, Space } from 'antd';
+const { Title } = Typography;
+
 
 const User = (props) => {
     const handleOnClick = () => {
@@ -12,13 +14,33 @@ const User = (props) => {
         const membership = props.user.membership;
         const picture = props.user.picture;
         return (
-            <Modal isOpen={props.modalIsOpen} contentLabel="Example Modal" className="user">
-                <h1>Profile</h1>
-                <span>Name: {details.firstname} {details.lastname}</span><br/>
-                <span>Location: {details.city}, {details.country}</span><br/>
-                <span>Joined: {membership.date_joined}</span><br/>
-                <img src={picture.thumbnail} alt="picture"/><br/>
-                <button onClick={handleOnClick}>Close</button>
+            <Modal isOpen={props.modalIsOpen} contentLabel="Example Modal" className="modal">
+            <Title level={4}>Profile</Title>
+            <Row justify="space-between">
+                <Col span={2}>
+                    <img src={picture.thumbnail} alt="picture"/><br/>
+                </Col>
+                <Col flex="auto">
+                    <Title level={5}>{details.firstname} {details.lastname}</Title>
+                </Col>
+            </Row>
+            <Row>
+                <Col offset={2} span={11}>
+                    Location:
+                </Col>
+                <Col span={11}>
+                    {details.city}, {details.country}
+                </Col>
+            </Row>
+            <Row>
+                <Col offset={2} span={11}>
+                    Joined:
+                </Col>
+                <Col span={11}>
+                    {membership.date_joined}
+                </Col>
+            </Row>
+            <Button type="primary" onClick={handleOnClick} style={{marginTop: "10px"}}>Close</Button>
             </Modal>
         );
     }

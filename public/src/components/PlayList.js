@@ -4,15 +4,14 @@ import HeaderContent from "./HeaderContent.js";
 import FavouritesList from "./FavouritesList.js";
 import PlayFilters from "./PlayFilters.js";
 import PlayMatches from "./PlayMatches.js";
-import { Layout, Row, Col } from 'antd';
-import "./css/PlayList.css";
+import { Layout, Row } from 'antd';
 
 const { Header, Footer, Sider, Content } = Layout;
 
 // oh god antdesign is not made for three column setups
 const PlayList = (props) => {
     return (
-        <Layout>
+        <Layout style={{height:"100vh"}}>
             <Header>
                 <HeaderContent toggleAbout={props.toggleAbout} toggleUser={props.toggleUser}/>
             </Header>

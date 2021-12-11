@@ -70,3 +70,18 @@ h1 {
 .landing-appear.landing-appear-active {
   opacity: 1;
 }
+
+.modal {
+  text-align: center;
+  background-color: white;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+  position: absolute;
+  height: 350px;
+  width: 300px;
+  margin-left: -150px;
+  margin-top: -175px;
+  left: 50%;
+  top: 50%;
+  padding: 10px;
+}

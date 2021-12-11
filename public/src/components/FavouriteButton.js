@@ -1,12 +1,10 @@
 import React from "react";
+import { Button } from "antd";
+import { HeartFilled } from '@ant-design/icons';
 
 const FavouriteButton = (props) => {
-    const handleOnClick = () => {
-        props.addToFavourites(props.play);
-    }
-    
     return (
-        <button onClick={handleOnClick}>♥</button>
+        <Button type="primary" onClick={e => props.addToFavourites(props.play)} icon={<HeartFilled />}/>
     );
 };
 

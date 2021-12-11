@@ -185,13 +185,17 @@ class App extends React.Component {
                               />
                 </Route>
                 <Route path="/play-detail" exact>
-                    
+                
                     <PlayDetailApp play={this.state.currentPlay}
-                                   savedPlayData={this.state.savedPlayData}
-                                   favourites={this.state.favourites}
-                                   addToFavourites={addToFavourites}
-                                   removeFromFavourites={removeFromFavourites}
-                                   savePlayData={savePlayData}/>
+                            savedPlayData={this.state.savedPlayData}
+                            favourites={this.state.favourites}
+                            addToFavourites={addToFavourites}
+                            removeFromFavourites={removeFromFavourites}
+                            savePlayData={savePlayData}
+                            toggleAbout={toggleAbout}
+                            toggleUser={toggleUser}
+                            setCurrentPlay={setCurrentPlay}
+                            />
                 </Route>
                 <About modalIsOpen={this.state.aboutIsOpen} toggleModal={toggleAbout}/>
                 <User modalIsOpen={this.state.userIsOpen} toggleModal={toggleUser} user={this.state.user}/>

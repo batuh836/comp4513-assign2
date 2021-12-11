@@ -1,8 +1,6 @@
 import React from "react";
 import {Link} from 'react-router-dom';
-import { Typography, Row, Col, Button, Space } from "antd";
-
-const { Title } = Typography;
+import { Row, Col, Button, Space } from "antd";
 
 const HeaderContent = (props) => {
     const handleAboutClick = () => {
@@ -16,7 +14,7 @@ const HeaderContent = (props) => {
     return (
         <Row justify="space-between">
             <Col>
-                <Link to="/home" component={Typography.Link} style={{fontSize: "2rem"}}>Play Browser</Link>
+                <Link to="/home" style={{fontSize: "2rem"}}>Play Browser</Link>
             </Col>
             <Col>
                 <Space>
