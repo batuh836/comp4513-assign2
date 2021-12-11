@@ -27,12 +27,13 @@ a:hover {
     text-decoration: underline;
 }
 
+/*
 button {
     background-color: black;
     color: white;
     border: 1px solid black;
     border-radius: 5px;
-}
+}*/
 
 input, select {
     border: 1px solid grey;

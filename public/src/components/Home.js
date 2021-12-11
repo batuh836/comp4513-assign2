@@ -1,6 +1,8 @@
 import React from "react";
 import {Link} from 'react-router-dom';
 import "./css/Home.css";
+import { Button, Space } from 'antd';
+import { SearchOutlined } from '@ant-design/icons';
 
 const Home = (props) => {
     const handleMatchingClick = () => {
@@ -18,8 +20,10 @@ const Home = (props) => {
                 <form className="form">
                     <legend>Play Browser</legend>
                     <label>Search Play Title</label><input id="title" type="text"/><br/>
-                    <Link to="/play-list"><button onClick={handleMatchingClick}>Show Matching Plays</button></Link>
-                    <Link to="/play-list"><button onClick={handleAllClick}>Show All Plays</button></Link><br/>
+                    <Space>
+                        <Link to="/play-list"><Button type="primary" icon={<SearchOutlined />} onClick={handleMatchingClick}>Search Plays</Button></Link>
+                        <Link to="/play-list"><Button onClick={handleAllClick}>Show All Plays</Button></Link>
+                    </Space>
                 </form>
             </article>
             <p>Phantom of the Opera at Istana Budaya, Kuala Lumpur. World Tour 2019.</p>
