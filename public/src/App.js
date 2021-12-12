@@ -3,7 +3,7 @@ import './App.css';
 import {CSSTransitionGroup} from 'react-transition-group';
 import {Route} from 'react-router-dom';
 import {cloneDeep, uniq} from 'lodash';
-import Header from "./components/Header.js";
+//import Header from "./components/HeaderContent.js";
 import Home from "./components/Home.js";
 import PlayList from "./components/PlayList.js";
 import PlayDetailApp from "./components/PlayDetailApp.js";
@@ -41,7 +41,7 @@ class App extends React.Component {
 
         if (!this.state.plays.length) {
             try {
-                const url = "https://comp4513-assign2.herokuapp.com/api/list";
+                const url = "https://www.randyconnolly.com//funwebdev/3rd/api/shakespeare/list.php";
                 const response = await fetch(url);
                 const data = await response.json();
                 
@@ -172,7 +172,6 @@ class App extends React.Component {
                     </CSSTransitionGroup>
                 </Route>
                 <Route path="/play-list" exact>
-                    <Header toggleAbout={toggleAbout} toggleUser={toggleUser}/>
                     <PlayList plays={this.state.filteredPlays}
                               genres={this.state.genres}
                               favourites={this.state.favourites}
@@ -180,16 +179,23 @@ class App extends React.Component {
                               setFilteredPlays={setFilteredPlays} 
                               addToFavourites={addToFavourites}
                               removeFromFavourites={removeFromFavourites}
-                              setCurrentPlay={setCurrentPlay}/>
+                              setCurrentPlay={setCurrentPlay}
+                              toggleAbout={toggleAbout}
+                              toggleUser={toggleUser}
+                              />
                 </Route>
                 <Route path="/play-detail" exact>
-                    <Header toggleAbout={toggleAbout} toggleUser={toggleUser}/>
+                
                     <PlayDetailApp play={this.state.currentPlay}
-                                   savedPlayData={this.state.savedPlayData}
-                                   favourites={this.state.favourites}
-                                   addToFavourites={addToFavourites}
-                                   removeFromFavourites={removeFromFavourites}
-                                   savePlayData={savePlayData}/>
+                            savedPlayData={this.state.savedPlayData}
+                            favourites={this.state.favourites}
+                            addToFavourites={addToFavourites}
+                            removeFromFavourites={removeFromFavourites}
+                            savePlayData={savePlayData}
+                            toggleAbout={toggleAbout}
+                            toggleUser={toggleUser}
+                            setCurrentPlay={setCurrentPlay}
+                            />
                 </Route>
                 <About modalIsOpen={this.state.aboutIsOpen} toggleModal={toggleAbout}/>
                 <User modalIsOpen={this.state.userIsOpen} toggleModal={toggleUser} user={this.state.user}/>
@@ -199,3 +205,5 @@ class App extends React.Component {
 }
 
 export default App;
+
+//<Header toggleAbout={toggleAbout} toggleUser={toggleUser}/>

@@ -1,6 +1,7 @@
 import React from "react";
 import {Link} from 'react-router-dom';
 import FavouriteButton from "./FavouriteButton.js";
+import { Col } from 'antd';
 import "./css/PlayMatches.css";
 
 const PlayMatches = (props) => {
@@ -15,7 +16,7 @@ const PlayMatches = (props) => {
     
     if (props.plays && props.plays.length > 0) {
         return (
-            <div className="play-matches">
+            <Col className="play-matches" flex="auto" style={{ paddingLeft: '40px' }}>
                 <h1>List/Matches</h1>
                 <table>
                     <thead>
@@ -43,15 +44,15 @@ const PlayMatches = (props) => {
                     </table>
                 </div>
                 <hr/>
-            </div>
+            </Col>
         );
     }
     else {
         return (
-            <div className="play-matches">
+            <Col className="play-matches" flex="auto" style={{ padding: '40px' }}>
                 <h1>List/Matches</h1>
                 <p>No plays found!</p>
-            </div>
+            </Col>
         )
     }
 };

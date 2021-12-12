@@ -1,20 +1,21 @@
 import React from "react";
-import { Form, Input, Button, Space, Select, Switch, Typography } from 'antd';
+import { Form, Input, Button, Space, Select, Switch, Typography, Col } from 'antd';
 
 const { Title } = Typography;
 
 const PlayFilters = (props) => {
     const [form] = Form.useForm();
+    const [genre, setGenre] = React.useState("");
+    const [before, setBefore] = React.useState(false);
+    const [after, setAfter] = React.useState(false);
 
     const handleFilterClick = () => {
-        //get value from each input element
-        const title = document.getElementById("title").value;
-        const before = document.getElementById("before").checked;
+        // get values from input elements
+        // changing these to use state breaks things that i don't want to deal with
+        const title = document.getElementById("title").value; 
         const beforeYear = document.getElementById("beforeYear").value;
-        const after = document.getElementById("after").checked;
         const afterYear = document.getElementById("afterYear").value;
-        const genre = document.getElementById("genre").value;
-        
+
         //filter plays with input values
         props.setFilteredPlays({"title": title,
                                 "before": before,
@@ -35,29 +36,29 @@ const PlayFilters = (props) => {
     
     
     return (
-        <div className="play-filters">
+        <Col span={6} style={{ padding: '0px 20px' }}>
             <Title level={2}>Play Filters</Title>
-            <Form layout="vertical" form={form}>
+            <Form  form={form}>
                 <Form.Item label="Title" name="title">
                     <Input id="title" type="text"/>
                 </Form.Item>
                 <Title level={3}>Year</Title>
                 <Form.Item label="Before" name="before">
                     <Space>
-                    <Switch id="before" type="checkbox"/>
+                    <Switch type="checkbox" onChange={e => setBefore(e)}/>
                     <Input id="beforeYear" type="text"/>
                     </Space>
                 </Form.Item>
                 <Form.Item label="After" name="after">
                     <Space>
-                        <Switch id="after" type="checkbox"/>
+                        <Switch type="checkbox" onChange={e => setAfter(e)}/>
                         <Input id="afterYear" type="text"/>
                     </Space>
                 </Form.Item>
                 <Form.Item label="Genre" name="genre">
-                    <Select id="genre">
+                    <Select onChange={e => setGenre(e)}>
                         {props.genres.map((g, i) => 
-                            <Select.option key={i} value={g}>{g}</Select.option>                          
+                            <Select.Option key={i} value={g}>{g}</Select.Option>                          
                         )}
                     </Select>
                 </Form.Item>
@@ -68,7 +69,7 @@ const PlayFilters = (props) => {
                     </Space>
                 </Form.Item>
             </Form>
-        </div>
+        </Col>
     );
 };
 

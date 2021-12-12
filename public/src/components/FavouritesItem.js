@@ -1,6 +1,7 @@
 import React from "react";
 import {Link} from 'react-router-dom';
-import "./css/FavouritesItem.css";
+import {Button, Row} from "antd";
+import { CloseOutlined } from '@ant-design/icons';
 
 const FavouritesItem = (props) => {
     const handleOnClick = () => {
@@ -13,10 +14,10 @@ const FavouritesItem = (props) => {
     }
     
     return (
-        <div className="favourites-item">
-            <Link to="/play-detail"><span onClick={() => {handleViewClick(props.play)}}>{props.play.title}</span></Link>
-            <button onClick={handleOnClick}>Remove</button>
-        </div>
+        <Row justify="space-between" style={{padding: "2px 10px", alignItems: "center"}}>
+            <Link to="/play-detail"><span onClick={() => {handleViewClick(props.play)}} style={{textTransform: "uppercase"}}>{props.play.title}</span></Link>
+            <Button type="primary" onClick={handleOnClick} icon={<CloseOutlined />}/>
+        </Row>
     );
 };
 
