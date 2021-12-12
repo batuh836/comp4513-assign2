@@ -85,3 +85,18 @@ h1 {
   top: 50%;
   padding: 10px;
 }
+
+.profile {
+  text-align: center;
+  background-color: white;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+  position: absolute;
+  height: 250px;
+  width: 400px;
+  margin-left: -200px;
+  margin-top: -125px;
+  left: 50%;
+  top: 50%;
+  padding: 10px;
+}
