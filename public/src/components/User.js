@@ -14,7 +14,7 @@ const User = (props) => {
         const membership = props.user.membership;
         const picture = props.user.picture;
         return (
-            <Modal isOpen={props.modalIsOpen} contentLabel="Example Modal" className="modal">
+            <Modal isOpen={props.modalIsOpen} contentLabel="Example Modal" className="profile">
             <Title level={4}>Profile</Title>
             <Row justify="space-between">
                 <Col span={2}>

@@ -14,7 +14,7 @@ const HeaderContent = (props) => {
     return (
         <Row justify="space-between">
             <Col>
-                <Link to="/home" style={{fontSize: "2rem"}}>Play Browser</Link>
+                <Link to="/home" style={{fontSize: "2rem", fontWeight: "bold"}}>Play Browser</Link>
             </Col>
             <Col>
                 <Space>

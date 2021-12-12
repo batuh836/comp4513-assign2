@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from 'react-router-dom';
 import {uniq} from 'lodash';
-import { Col, Typography, Button, Form, Input, Select } from 'antd';
+import { Col, Typography, Button, Form, Input, Select, Space } from 'antd';
 import FavouriteButton from "./FavouriteButton";
 const { Title } = Typography;
 
@@ -16,7 +16,6 @@ const PlayOverview = (props) => {
         return (
             <Col className="play-overview" span={6} style={{ padding: '0px 20px' }}>
                 <Title level={2}>{props.play.title}</Title>
-                <p>{props.play.synopsis}</p>
                 <Title level={3}>Script Search</Title>
                 <Form>
                     <Form.Item label="Act" name="act">
@@ -38,14 +37,11 @@ const PlayOverview = (props) => {
                         <Input type="text" placeholder="Enter a search term" onChange={e => props.setSearchText(e.target.value)}/>
                     </Form.Item>
                 </Form>
-                
+                <Space>
+                    <Link to="/play-list"><Button>Close</Button></Link>
+                    <FavouriteButton play={props.play} addToFavourites={props.addToFavourites}/>
+                </Space>
 
-                <fieldset>
-                    
-                    
-                </fieldset>
-                <Link to="/play-list"><Button>Close</Button></Link>
-                <FavouriteButton play={props.play} addToFavourites={props.addToFavourites}/>
             </Col>
         );
     }
@@ -54,8 +50,10 @@ const PlayOverview = (props) => {
             <Col className="play-overview" span={6} style={{ padding: '0px 20px' }}>
                 <Title level={2}>{props.play.title}</Title>
                 <p>{props.play.synopsis}</p>
-                <Link to="/play-list"><Button>Close</Button></Link>
-                <FavouriteButton play={props.play} addToFavourites={props.addToFavourites}/>
+                <Space>
+                    <Link to="/play-list"><Button>Close</Button></Link>
+                    <FavouriteButton play={props.play} addToFavourites={props.addToFavourites}/>
+                </Space>
             </Col>
         );
     }
