@@ -29,6 +29,7 @@ const PlayData = (props) => {
                                     currentAct={props.currentAct}
                                     currentScene={props.currentScene}
                                     currentCharacter={props.currentCharacter}
+                                    searchText={props.searchText}
                                     />
                     </TabPane>
                 }

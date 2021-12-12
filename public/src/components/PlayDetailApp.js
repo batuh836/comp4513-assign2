@@ -4,7 +4,6 @@ import PlayOverview from "./PlayOverview.js";
 import HeaderContent from "./HeaderContent.js";
 import PlayData from "./PlayData.js";
 import { Layout, Row } from 'antd';
-import "./css/PlayDetailApp.css";
 
 const { Header, Footer, Sider, Content } = Layout;
 

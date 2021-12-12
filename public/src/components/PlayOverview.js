@@ -3,8 +3,6 @@ import {Link} from 'react-router-dom';
 import {uniq} from 'lodash';
 import { Col, Typography, Button, Form, Input, Select } from 'antd';
 import FavouriteButton from "./FavouriteButton";
-import "./css/PlayOverview.css";
-
 const { Title } = Typography;
 
 const PlayOverview = (props) => {

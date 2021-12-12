@@ -27,7 +27,7 @@ const PlayScript = (props) => {
                                 <p className="speaker"><strong>{s.speaker}</strong></p>
                                 {s.lines.map((l, i) => 
                                     <p className="line" key={i}>
-                                         <Highlighter searchWords={[props.searchText]} textToHighlight={l}/>
+                                         <Highlighter searchWords={[props.searchText]} textToHighlight={l} highlightStyle={{fontWeight: "bold"}}/>
                                     </p>
                                 )}
                             </div>
